@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "odoo": {
+      "type": "stdio",
+      "command": "${CLAUDE_PROJECT_DIR:-.}/mcp-odoo/run.sh",
+      "args": []
+    }
+  }
+}

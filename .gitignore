@@ -1,0 +1,19 @@
+# Sekrety
+.env
+.env.*
+!.env.example
+
+# Środowiska i zależności
+.venv/
+venv/
+mcp-odoo/.venv/
+node_modules/
+__pycache__/
+*.pyc
+
+# Lokalne ustawienia Claude Code
+.claude/
+
+# Logi i pliki systemowe
+*.log
+.DS_Store

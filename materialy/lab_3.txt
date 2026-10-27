@@ -1,0 +1,308 @@
+=== 1
+Drukuj książkę
+Zespół 3
+Strona:Uczelniana Platforma e-Learningowa AGH
+Kurs: Wdrażanie systemów ERP 2026
+Książka:Zespół 3
+Wydrukowane przez użytkownika:Maciej Juchacz
+Data: poniedziałek, 26 października 2026, 15:40
+Spis treści
+1. Z3 — Magazyn, logistyka i identyfikowalność
+2. Podział pracy równoległej
+3. Gotowość do L5
+4. MAG-P01. Struktura lokalizacji, przyjęcie i widoczność produktu–partii
+5. MAG-P02. Terminy, granica dopuszczenia i FEFO
+6. MAG-P03. Wycofanie, kwarantanna i identyfikowalność w całym łańcuchu
+7. MAG-P04. Pusta pół ka, transfer, próg uzupeł nienia i brak w firmie
+8. MAG-P05. Rezerwacja, kompletacja częściowa i ochrona przed nadmiernym rozchodem
+9. MAG-P06. Zwrot od klienta i przekazanie do kontroli
+10. MAG-P07. Inwentaryzacja, korekta i uzgodnienie bilansu
+11. MAG-P08. Etykiety, kody i naruszenie warunków przechowywania
+12. Opis CRIM
+13. CRIM-Z3. Monitor półki i zagrożonych partii
+14. Minimum planu 8 testów CRIM
+15. Instrukcje wspólne i źródło
+16. Drugi CRIM do zaproponowania po L5
+1. Z3 — Magazyn, logistyka i identyfikowalność
+Z3 — Magazyn, logistyka i identyfikowalność
+Pełny zakres procesów P1 → L4 → L5 → dalszy odbiór
+Mapa procesów obszaru
+W systemie Odoo macie państwo zaimplementoać następujące procesy
+Proces Temat ID SIWZ
+MAG-P01 Struktura lokalizacji, przyjęcie i widoczność produktu–partii MAG-001, MAG-002, MAG-003
+MAG-P02 Terminy, granica dopuszczenia i FEFO MAG-005, MAG-006
+MAG-P03 Wycofanie, kwarantanna i identyfikowalność w całym łańcuchu MAG-004, MAG-007, MAG-017
+MAG-P04 Pusta półka, transfer, próg uzupełnienia i brak w firmie MAG-008, MAG-009, MAG-010, MAG-011
+MAG-P05 Rezerwacja, kompletacja częściowa i ochrona przed nadmiernym rozchodem MAG-013, MAG-014, MAG-018
+MAG-P06 Zwrot od klienta i przekazanie do kontroli MAG-015
+MAG-P07 Inwentaryzacja, korekta i uzgodnienie bilansu MAG-012, MAG-020
+MAG-P08 Etykiety, kody i naruszenie warunków przechowywania MAG-016, MAG-019
+2. Podział pracy równoległej
+Podział pracy równoległej
+Strumień Procesy Zakres
+A MAG-P01/P04 Struktura, zapasy, uzupełnienia i dane partnerów.
+B MAG-P02/P03/P08 Daty, kwarantanna, wycofanie i etykiety.
+C MAG-P05/P06/P07 Rezerwacje, wydania, zwroty i bilans.
+Każda grupa procesu ma właściciela i drugiego weryfikatora. Nie trzeba zakładać nowych kartotek do każdego scenariusza; trzeba natomiast zapewnić
+niezależne stany prób i kontrolować globalne ustawienia. Wszystkie kroki wykonane wcześniej pozostają wykorzystane.
+3. Gotowość do L5
+Gotowość do L5
+Prezentacja zmapowanych 8 procesów w systemie.
+4. MAG-P01. Struktura lokalizacji, przyjęcie i widoczność produktu–partii
+MAG-P01. Struktura lokalizacji, przyjęcie i widoczność produktu–partii
+Kontrola krytyczna / powiązanie z incydentem lub bezpieczeństwem uruchomienia.
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-001 Rozdzielić przyjęcia, zaplecze, półkę i kwarantannę oraz zdefiniować źródła realizacji kanałów sprzedaży.
+MAG-002 Pokazywać ilości według produktu, partii i lokalizacji, bez utraty szczegółów przy agregacji.
+MAG-003 Zapewnić identyfikację partii i wymagane daty na przyjęciu śledzonego produktu.
+Dane i warunki do potwierdzenia przed próbą: Przyjęcia, zaplecze, półka i kwarantanna. Dwie partie tego samego produktu; jedna ma 1 sztukę na
+półce i 2 na zapleczu.
+Należy wykonać
+1. Uzgodnić źródła sprzedaży, wydania i produkcji; skonfigurować lokalizacje i sprawdzić ich zakresy.
+2. Przyjąć dwie odrębne partie z danymi dostawcy oraz wymaganymi datami.
+3. Odczytać ilości według produktu, partii i lokalizacji; rozwinąć sumę 3 do 1+2.
+4. Sprawdzić brak partii lub wymaganej daty na osobnym przyjęciu i zarejestrować zachowanie.
+Przypadek poprawny — MAG-P01-POS
+POS: dostawa zachowuje podział partii; widać położenie każdej ilości.
+Przypadek problemowy — MAG-P01-NEG
+NEG: brak identyfikacji nie może zostać ukryty w anonimowej sumie; wykryta przeszkoda ma właściciela.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Lokalizacje, przyjęcie, partie i zestawienie szczegółowe.
+Współpraca: Z2: przyjęcie; Z1 i Z4: źródła realizacji.
+Granica odbioru: Sama nazwa kwarantanny ani suma zapasu firmy nie określa dopuszczenia do konkretnej operacji.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+5. MAG-P02. T erminy, granica dopuszczenia i FEFO
+MAG-P02. Terminy, granica dopuszczenia i FEFO
+Kontrola krytyczna / powiązanie z incydentem lub bezpieczeństwem uruchomienia.
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-005 Preferować najwcześniejszą datę usunięcia wśród partii dopuszczonych do wydania.
+MAG-006 Stosować jednoznaczną datę graniczną i strefę czasową; rozróżniać datę alertu, usunięcia i ważności.
+Dane i warunki do potwierdzenia przed próbą: Dopuszczona partiaA6 sztuk z wcześniejszą datą usunięcia, B8 z późniejszą; osobna
+niedopuszczona X. Wydanie 8. Daty względem D.
+Należy wykonać
+1. Uzgodnić znaczenie daty alertu, usunięcia i ważności, strefę czasu oraz reakcję na granicy.
+2. Wprowadzić wartości dla konkretnych partii, ustawić właściwą strategię doboru.
+3. Przygotować wydanie 8 i odczytać przypisane partie; sprawdzić 6A+2B.
+4. Na niezależnych danych sprawdzić stan przed granicą, na niej i po niej oraz brak daty. Nie zmieniać historycznej daty, aby zalegalizować zapas.
+Przypadek poprawny — MAG-P02-POS
+POS: spośród dopuszczonych partii do wydania 8 wskazano 6A i 2B, zgodnie z kolejnością dat.
+Przypadek problemowy — MAG-P02-NEG
+NEG: partia wycofana lub po granicy nie zostaje uznana za dopuszczoną tylko dlatego, że algorytm wybiera najwcześniejszą datę.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Daty i strefa, reguła, przypisanie partii, osobne wyniki prób granicznych.
+Współpraca: Z1: SPR-P05; Z4: PRD-P05; Z5: URJ-P06.
+Granica odbioru: FEFO jest strategią doboru; kontrola dopuszczenia jest osobnym wymaganiem. Braku blokady nie wolno zastąpić informacją o
+FEFO.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+6. MAG-P03. Wycofanie, kwarantanna i identyfikowalność w całym łańcuchu
+MAG-P03. Wycofanie, kwarantanna i identyfikowalność w całym łańcuchu
+Kontrola krytyczna / powiązanie z incydentem lub bezpieczeństwem uruchomienia.
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-004 Wyłączyć zapas kwarantanny z rezerwacji, kompletacji i dostępności do sprzedaży.
+MAG-007 Po decyzji jakościowej odnaleźć i odseparować cały pozostały zapas wskazanej partii we wszystkich lokalizacjach.
+MAG-017 Odtworzyć dostawę, ruchy, zużycie do zestawów i sprzedaż wskazanej partii.
+Dane i warunki do potwierdzenia przed próbą: Niedopuszczona DAN-X: półka 1/zaplecze 2; dobra partia osobno. Przygotowane powiązania
+dostawy i wykorzystania jednej wskazanej partii.
+Należy wykonać
+1. Na podstawie decyzji Z5 odnaleźć cały pozostały zapas partii we wszystkich lokalizacjach.
+2. Wykonać ruchy 1+2 do kwarantanny i sprawdzić niezmienioną dobrą partię.
+3. Przejść od partii do dostawy, ruchów, zleceń zestawów i transakcji sprzedaży; nie identyfikować anonimowego klienta bez danych.
+4. Sprawdzić osobno zwykłą rezerwację, wydanie i użycie do zestawu przy zapasie wyłącznie w kwarantannie; role i kanały zapisać.
+Przypadek poprawny — MAG-P03-POS
+POS:3 sztuki wycofane i identyfikowalne; poprawna partia nadal działa w normalnej ścieżce.
+Przypadek problemowy — MAG-P03-NEG
+NEG: żadna objęta zakresem operacja nie korzysta z zapasu kwarantanny jako dopuszczonego. Próba udana wbrew zakazowi pozostaje krytyczną
+luką.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Decyzja jakościowa, dwa transfery, stany i powiązania wstecz/naprzód, próby wszystkich objętych kanałów.
+Współpraca: Z5: decyzja i zasięg; Z1: sprzedaż; Z4: zużycie.
+Granica odbioru: Test jednej rezerwacji nie dowodzi zakazu każdego ręcznego wydania i użycia. Pełny odbiór wymaga sprawdzenia
+uzgodnionych ścieżek.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+7. MAG-P04. Pusta półka, transfer, próg uzupełnienia i brak w firmie
+MAG-P04. Pusta półka, transfer, próg uzupełnienia i brak w firmie
+Kontrola krytyczna / powiązanie z incydentem lub bezpieczeństwem uruchomienia.
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-008 Każde fizyczne przeniesienie towaru rejestrować w ERP z produktem, ilością, partią, źródłem i celem.
+MAG-009 Udostępnić operatorowi informację o braku i przydzielić odpowiedzialność za reakcję, bez czekania na skargę klienta.
+MAG-010 Uzupełniać półkę zgodnie z zatwierdzoną regułą i uwzględniać otwarte przesunięcia.
+MAG-011 Przekazać do zakupów brak, którego nie można pokryć wewnętrznym przesunięciem.
+Dane i warunki do potwierdzenia przed próbą: A: półka 0/zaplecze 8, transfer 4. B niezależny: półka 1/zaplecze 8, minimum 2, cel 6. C:0/0.
+Należy wykonać
+1. Udostępnić informację o zapasie z podziałem na lokalizacje i osobę reagującą; odczytać brak bez skargi klienta.
+2. W wariancieA wykonać transfer 4 i porównać stany 4/4 oraz sumę 8.
+3. W wariancieB zbudować potrzebę transferu 5; sprawdzić ponowienie przy już otwartym przesunięciu, potem wykonać i odczytać 6/3.
+4. W wariancieC przekazać potrzebę zakupu do Z2; sprawdzić, że nie powstał fikcyjny transfer z pustego zaplecza.
+Przypadek poprawny — MAG-P04-POS
+POS: informacja i właściwa reakcja poprzedzają reklamację klienta; transfer ma ślad i zachowuje sumę zapasu.
+Przypadek problemowy — MAG-P04-NEG
+NEG: wielokrotne sprawdzenie nie mnoży tej samej otwartej potrzeby; zapas kwarantanny nie wypełnia niedoboru;0/0 nie daje transferu.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Widok stanu, zadanie/potrzeba, otwarte ruchy, transfer i potwierdzenie partnera.
+Współpraca: Z1: informacja kasjera; Z2: zakup.
+Granica odbioru: Warianty 0/8→4/4 i 1/8→6/3 są osobnymi testami; nie wolno mieszać ich liczb.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+8. MAG-P05. Rezerwacja, kompletacja częściowa i ochrona przed nadmiernym rozchodem
+MAG-P05. Rezerwacja, kompletacja częściowa i ochrona przed nadmiernym rozchodem
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-013 Odróżniać ilość fizyczną od ilości niezarezerwowanej i nie liczyć jednej sztuki jako dostępnej dla dwóch potrzeb.
+MAG-014 Potwierdzać faktycznie wydane ilości i partie, z zachowaniem powiązania z zamówieniem.
+MAG-018 Nie potwierdzać nieuzasadnionego rozchodu ponad dostępny dopuszczony zapas.
+Dane i warunki do potwierdzenia przed próbą: A: fizycznie 10 dopuszczonych, zarezerwowane 6. B: zamówienie 10/realizacja 6. C: źródło 5/żądane
+6.
+Należy wykonać
+1. Odczytać fizyczny, zarezerwowany i wolny zapas oraz dokument rezerwujący.
+2. Przydzielić tylko dostępny zapas do nowej potrzeby i porównać wynik.
+3. Zrealizować częściowo 6 z 10 z identyfikacją partii i obsłużyć pozostałe 4.
+4. W osobnym wariancie spróbować rozchodu 6 ze stanu 5; sprawdzić ilość faktycznie wydaną, otwartą i stan końcowy.
+Przypadek poprawny — MAG-P05-POS
+POS: z 10 po rezerwacji 6 dostępne 4; częściowa kompletacja zachowuje 4 do obsługi.
+Przypadek problemowy — MAG-P05-NEG
+NEG: brakująca ilość nie staje się ukrytym stanem ujemnym; ponowne użycie zarezerwowanego zapasu nie jest uznane za zgodne.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Rezerwacje, wydania z partiami, stan wolny i otwarte ilości.
+Współpraca: Z1: SPR-P01/P07; Z4: materiały.
+Granica odbioru: Przyjęcie zamówienia i fizyczne wydanie są różnymi krokami. Ręczne ograniczenie ilości nie dowodzi systemowego zakazu.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+9. MAG-P06. Zwrot od klienta i przekazanie do kontroli
+MAG-P06. Zwrot od klienta i przekazanie do kontroli
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-015 Zwrócony od klienta towar kierować do kontrolowanej lokalizacji i nie dopuszczać go automatycznie do ponownej sprzedaży.
+Dane i warunki do potwierdzenia przed próbą: Powiązana sprzedaż 3 DAN i zwrot 1; odrębne źródło 10 na półce.
+Należy wykonać
+1. Odnaleźć pierwotne wydanie i właściwą partię, uruchomić zwrot 1.
+2. Skierować do uzgodnionej lokalizacji kontroli i odczytać stany.
+3. Przekazać jakość i rozliczenie; wskazać, czy dalsze dopuszczenie wymaga odrębnej decyzji.
+4. Spróbować potraktować zwrot jako dostępny dla kasy przed kontrolą; zapisać wynik.
+Przypadek poprawny — MAG-P06-POS
+POS: po sprzedaży 3 i zwrocie 1 półka 7, kwarantanna 1, fizycznie 8.
+Przypadek problemowy — MAG-P06-NEG
+NEG: sam zwrot nie zwiększa dopuszczonego zapasu półki; dane zwrotu nie dotyczą przypadkowej partii.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Sprzedaż/zwrot, partia, lokalizacje, decyzja i powiadomienie.
+Współpraca: Z1: SPR-P08; Z5: URJ-P06; FIN-P02.
+Granica odbioru: Nie wystarcza poprawna refundacja kwoty, jeśli fizyczny skutek jest błędny.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+10. MAG-P07. Inwentaryzacja, korekta i uzgodnienie bilansu
+MAG-P07. Inwentaryzacja, korekta i uzgodnienie bilansu
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-012 Rejestrować rozbieżność spisu z systemem i zatwierdzoną korektę, zamiast ukrywać brak przypadkowym ruchem.
+MAG-020 Po serii operacji uzgodnić stany według produktu, partii i lokalizacji, w tym kwarantannę.
+Dane i warunki do potwierdzenia przed próbą: System 8, spis 7; odrębna seria przyjęć, wydań, zwrotów i transferów z uzgodnionym otwarciem.
+Należy wykonać
+1. Przeprowadzić spis testowy, wskazać różnicę−1 i jej przyczynę.
+2. Uprawniona osoba zatwierdza korektę; sprawdzić ślad i aktualny stan.
+3. Dla serii operacji obliczyć otwarcie+przyjęcia−wydania±korekty według produktu, partii i lokalizacji.
+4. Wprowadzić kontrolowaną niezgodność lub ponowić dokument na kopii; wykryć jej wpływ i wskazać dokument źródłowy.
+Przypadek poprawny — MAG-P07-POS
+POS: korekta−1 ma autora i powód; bilans da się odtworzyć, transfer wewnętrzny nie zmienia sumy firmy.
+Przypadek problemowy — MAG-P07-NEG
+NEG: niezgodność nie jest ukryta przypadkowym przyjęciem lub usunięciem historii; duplikat nie uchodzi za prawidłowy bilans.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Arkusz spisu/dokument korekty, lista ruchów i uzgodnienie z Odoo.
+Współpraca: FIN-P05/P06; WSP-P03/P07.
+Granica odbioru: Ponowienie bilansu otwarcia to nie ponowienie aktualizacji kartoteki; nie dokładać nowych stanów na istniejące.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+11. MAG-P08. Etykiety, kody i naruszenie warunków przechowywania
+MAG-P08. Etykiety, kody i naruszenie warunków przechowywania
+Kontrola krytyczna / powiązanie z incydentem lub bezpieczeństwem uruchomienia.
+Termin/rola w cyklu: F2 → F3.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-016 Zapewnić zgodność fizycznych etykiet produktu i partii z kartotekami oraz skanowaniem w procesie.
+MAG-019 Wskazać wymagane warunki lokalizacji dla wybranego produktu i obsłużyć stwierdzone naruszenie.
+Dane i warunki do potwierdzenia przed próbą: Etykiety produktu i partii, próbka Trufli z rozbieżnym kodem; fikcyjny warunek przechowywania i jego
+naruszenie.
+Należy wykonać
+1. Porównać produkt, kod, jednostkę i partię w kartotece i na etykiecie; sprawdzić skaner.
+2. Skorygować błędne etykiety/kartotekę w uzgodnionej roli i powtórzyć próbę z Z1.
+3. Wskazać dla wybranego zapasu uzgodnione warunki przechowywania.
+4. Zarejestrować symulowane naruszenie z konkretną lokalizacją i partią oraz przekazać do jakości.
+Przypadek poprawny — MAG-P08-POS
+POS: etykieta jednoznacznie wskazuje właściwy produkt i partię; po korekcie skan jest poprawny.
+Przypadek problemowy — MAG-P08-NEG
+NEG: konflikt kodu i naruszenie warunku nie są pomijane; nie powstaje bezpodstawna pozytywna ocena całego zapasu.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Próbki etykiet, odczyt skanu, kartoteka oraz zgłoszenie jakościowe.
+Współpraca: Z1: SPR-P04; Z2: kontrola dostawy; Z5: kontrola jakości.
+Granica odbioru: Warunki produktu są danymi ćwiczenia, nie deklaracją rzeczywistych zasad producenta. MAG-019 ma w źródle priorytet C.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+12. Opis CRIM
+Projekt — rozszerzenie CRIM
+Magazynier otwiera panel i widzi: „Tiki-Taki trzeba przenieść na półkę, a tę partię Danusi należy wycofać”. Aplikacja łączy stany lokalizacji z partiami i
+terminami. Rozróżnia towar na półce, na zapleczu i w kwarantannie, a następnie przygotowuje listę działań. To narzędzie kontrolne — samo nie blokuje
+sprzedaży na kasie.
+13. CRIM-Z3. Monitor półki i zagrożonych partii
+CRIM-Z3. Monitor półki i zagrożonych partii
+Termin/rola w cyklu: P1/F2 specyfikacja i próba danych; projekt/F3 implementacja.
+ID SIWZ Treść wymagania w wersji bazowej
+MAG-021 Połączyć eksport stanów, lokalizacji, partii i dat z trwałymi identyfikatorami oraz czasem pozyskania.
+MAG-022 Rozróżniać „na półce”, „tylko zaplecze”, „niedopuszczone” i „brak danych” bez błędnej sumy dostępności.
+MAG-023 Przygotować listę zadań uzupełnienia i wycofania z produktem, partią, lokalizacją, ilością i odpowiedzialnym.
+MAG-024 Pokazywać czas danych i nie przedstawiać raportu plikowego jako bieżącej blokady kasowej.
+Dane i warunki do potwierdzenia przed próbą: Eksport stanów, partii, lokalizacji, dat i rezerwacji; przypadek 0/8/3 oraz partia w dwóch lokalizacjach
+1+2.
+Należy wykonać
+1. Połączyć szczegóły bez utraty partii i lokalizacji; podać czas eksportu.
+2. Klasyfikować zapas na półce, zapleczu, niedopuszczony i nieocenialny z braku danych.
+3. Przygotować zadania uzupełnienia/wycofania z ilością, partią i odpowiedzialnym.
+4. Po rzeczywistym działaniu w Odoo odświeżyć dane i usunąć wykonane zadanie z listy otwartej.
+Przypadek poprawny — CRIM-Z3-POS
+Panel pokazuje 0/8/3 oddzielnie, a wycofanie dotyczy wszystkich 3 sztuk danej partii.
+Przypadek problemowy — CRIM-Z3-NEG
+Brak daty nie oznacza dopuszczenia; agregacja nie gubi 1+2; stare dane nie udają stanu na żywo.
+Jeżeli NEG opisuje kilka różnych błędów, nadać podpróbom osobne oznaczenia NEG-1, NEG-2 itd. Nie wolno zastąpić wszystkich jedną ogólną oceną.
+Wynik podany powyżej jest oczekiwaniem do uzgodnienia, nie deklaracją dostępności funkcji lub wynikiem badania.
+Dowód w SIWZ: Źródła i czas, wynik panelu, zadania i dokument rzeczywistego transferu.
+Współpraca: Właściciel obszaru i odbiorca spoza autorów; dla CRIM-Z6 przy 5 zespołach prowadząca wyznacza wykonawcę albo podejmuje
+jawną decyzję o wyborze projektu.
+Granica odbioru: Zakres obowiązuje po wyborze projektu i próbie wykonalności. Minimum plikowe poza Odoo; API/Studio tylko po potwierdzeniu.
+Nie jest dowodem twardej blokady PoS ani obowiązkiem ukończenia aplikacji na L5.
+Zapis: przy każdym wymienionym ID wskazać kod procesu i odpowiednią próbę. W „Realizacja” zapisać konfigurację, w „Kryterium odbioru”
+K+/K−, a w „Próby F2 — wynik i dowód” rzeczywisty wynik i rekordy. Wspólny dowód można podać raz i wskazać odwołania; nie oznaczać bez
+sprawdzenia wszystkich ID jako spełnionych.
+14. Minimum planu 8 testów CRIM
+Minimum planu 8 testów CRIM
+Poprawne dane; nieznane ID; brak pola; niepoprawna wartość/jednostka; ponowienie tego samego zdarzenia; nieaktualne dane; niedostępność
+źródła/uprawnień; ponowne uruchomienie i wykorzystanie wyniku w Odoo. Dostosować do projektu bez dopisywania nieistotnych mechanizmów.
+Kryteria uzgodnić przed implementacją.
+15. Instrukcje wspólne i źródło
+Instrukcje wspólne i źródło
+Zapisy i statusy: SIWZ — gdzie wpisywać. Incydenty: obowiązkowa regresja. Kompletność: mapa 150 ID. Źródło wymagań:
+
+=== 2
+Zapisy i statusy: SIWZ — gdzie wpisywać. Incydenty: obowiązkowa regresja. Kompletność: mapa 150 ID. Źródło wymagań:
+Wawel_LAB_SIWZ_wymagania.xlsx, odpowiedni arkusz obszaru. Dokładne kroki, grupowanie i podział pracy są propozycją dydaktyczną v 2; wyniki w
+bazie pozostają do wykonania.
+16. Drugi CRIM do zaproponowania po L5
+Drugi CRIM do zaproponowania po L5
